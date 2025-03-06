@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ApiKey.Data.Mapping;
+using ApiKey.Model;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 
@@ -8,14 +10,13 @@ public class ContextApp : DbContext
     {
     }
 
-    //public DbSet<T> T { get; set; }
-    //public DbSet<T> T { get; set; }
+    public DbSet<Category>  Categories { get; set; }
+   
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        //modelBuilder.ApplyConfiguration(new TMap());
-        //modelBuilder.ApplyConfiguration(new Tmap());
-
+        modelBuilder.ApplyConfiguration(new CategoryMap());
+     
     }
 
 }
